@@ -33,7 +33,7 @@ public class UserController {
      * @param requestParam
      * @return
      */
-    @PostMapping("/api/short-link/v1/user")
+    @PostMapping("/api/short-link/admin/v1/user")
     public void  hasUsername(@RequestBody UserRegisterReqDto requestParam) {
         userService.register(requestParam);
     }
