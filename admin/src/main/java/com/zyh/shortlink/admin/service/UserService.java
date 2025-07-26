@@ -1,8 +1,11 @@
 package com.zyh.shortlink.admin.service;
 
-import com.zyh.shortlink.admin.dao.UserRegisterReqDto;
+import com.zyh.shortlink.admin.dto.req.UpdateUserReq;
+import com.zyh.shortlink.admin.dto.req.UserLoginReq;
+import com.zyh.shortlink.admin.dto.req.UserRegisterReqDto;
 import com.zyh.shortlink.admin.dao.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zyh.shortlink.admin.dto.resp.UserLoginResp;
 
 /**
 * @author 31748
@@ -23,4 +26,17 @@ public interface UserService extends IService<User> {
      */
     void register(UserRegisterReqDto requestParam);
 
+    /**
+     * 根据用户名修改用户信息
+     *
+     * @param requestParam
+     */
+    void updateUser(UpdateUserReq requestParam);
+
+
+    UserLoginResp login(UserLoginReq requestParam);
+
+    Boolean checklogin(String token, String username);
+
+    void exit(String username);
 }

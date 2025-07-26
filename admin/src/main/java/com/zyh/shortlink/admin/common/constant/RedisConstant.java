@@ -9,5 +9,6 @@ import lombok.RequiredArgsConstructor;
 public class RedisConstant {
 
         public static final String LOCK_USER_REGISTER_KEY = "short-link:register_username:";
+    public static final String USER_LOGIN_KEY = "short-link:user_login:";
 
 }

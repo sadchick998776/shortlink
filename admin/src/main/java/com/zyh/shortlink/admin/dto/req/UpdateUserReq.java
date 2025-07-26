@@ -1,17 +1,9 @@
-package com.zyh.shortlink.admin.dao;
+package com.zyh.shortlink.admin.dto.req;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 @Data
-public class UserRegisterReqDto {
-    /**
-     * ID
-     */
-    @TableId(type = IdType.AUTO)
-    private Long id;
-
+public class UpdateUserReq {
     /**
      * 用户名
      */
