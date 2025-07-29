@@ -1,4 +1,4 @@
-package com.zyh.shortlink.admin.config;
+package com.zyh.shortlink.project.config;
 
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RedissonClient;
@@ -15,9 +15,8 @@ public class RBloomFilterConfiguration {
      * 防止用户注册查询数据库的布隆过滤器
      */
     @Bean
-    public RBloomFilter<String> shortLinkRegisterCachePenetrationBloomFilter(RedissonClient redissonClient) {
-        RBloomFilter<String> cachePenetrationBloomFilter = redissonClient.getBloomFilter("fullShortLink");
-        //todo 实际测试时为达到并发数量， 修改最大参数为亿数量
+    public RBloomFilter<String> userRegisterCachePenetrationBloomFilter(RedissonClient redissonClient) {
+        RBloomFilter<String> cachePenetrationBloomFilter = redissonClient.getBloomFilter("username");
         cachePenetrationBloomFilter.tryInit(10000000L, 0.001);
         return cachePenetrationBloomFilter;
     }

@@ -68,4 +68,12 @@ public class GroupController {
     }
 
 
+    @GetMapping("/api/short-link/v1/count")
+    public Result<List<Integer>> gidCountByUsername() {
+        return Results.success(groupService.gidCountByUsername());
+    }
+
+
+
+
 }

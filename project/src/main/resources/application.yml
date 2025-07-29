@@ -1,2 +1,32 @@
 server:
   port: 8001
+
+spring:
+  datasource:
+    # ShardingSphere 对 Driver 自定义，实现分库分表等隐藏逻辑
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    # ShardingSphere 配置文件路径
+    url: jdbc:shardingsphere:classpath:shardingsphere-config.yaml
+    hikari:
+      connection-test-query: select 1
+      connection-timeout: 20000
+      idle-timeout: 300000
+      maximum-pool-size: 5
+      minimum-idle: 5
+  data:
+    redis:
+      host: 8.152.102.32
+      port: 6379
+      timeout: 3000
+mybatis-plus:
+  configuration:
+    # 开启 MyBatis 标准日志输出（SQL语句、参数、结果）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    # 全局配置（可选）
+    banner: false  # 关闭启动 Banner
+    db-config:
+      logic-delete-field: del_flag  # 逻辑删除字段名（与你的表结构一致）
+      logic-not-delete-value: 0      # 未删除的值
+      logic-delete-value: 1          # 已删除的值
+
